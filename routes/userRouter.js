@@ -10,7 +10,7 @@ module.exports = (function() {
   router.post('/', user.create);
   router.get('/:userId', auth.checkToken, user.get, user.view);
   router.put('/:userId', auth.checkToken, user.get, user.update);
-  router.delete('/:userId', auth.checkToken, user.get, user.delete);
+  //router.delete('/:userId', auth.checkToken, user.get, user.delete);
 
   return router;
 

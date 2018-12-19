@@ -101,24 +101,24 @@ exports.update = function(req, res) {
         user.pass = hash
         user.save(function(err) {
           if (err) throw err;
-          res.json(true);
+          res.json(user);
         });
       });
     } else {
       user.save(function(err) {
         if (err) throw err;
-        res.json(true);
+        res.json(user);
       });
     }
   }
 };
 
-exports.delete = function(req, res) {
-  let user = res.locals.user;
-  if (user) {
-    user.remove(function(err) {
-      if (err) throw err;
-      res.json(true);
-    });
-  }
-};
+// exports.delete = function(req, res) {
+//   let user = res.locals.user;
+//   if (user) {
+//     user.remove(function(err) {
+//       if (err) throw err;
+//       res.json();
+//     });
+//   }
+// };
