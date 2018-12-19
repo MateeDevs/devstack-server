@@ -32,7 +32,7 @@ exports.create = function(req, res) {
       } else {
 
         // hash the password with bcrypt
-        bcrypt.hash(req.body.pass, 4, function(err, hash) {
+        bcrypt.hash(req.body.pass, 10, function(err, hash) {
 
           // create a new user
           let newUser = User({
@@ -96,7 +96,7 @@ exports.update = function(req, res) {
     if (req.body.hasOwnProperty('bio')) user.bio = req.body.bio;
     if (req.body.hasOwnProperty('pass')) {
       // hash the new password with bcrypt
-      bcrypt.hash(req.body.pass, 4, function(err, hash) {
+      bcrypt.hash(req.body.pass, 10, function(err, hash) {
         // update password
         user.pass = hash
         user.save(function(err) {
