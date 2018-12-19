@@ -40,7 +40,7 @@
 					},
 					"response": [
 						{
-							"name": "POST /login",
+							"name": "Default",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -157,7 +157,7 @@
 					},
 					"response": [
 						{
-							"name": "POST /user",
+							"name": "Default",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -278,7 +278,7 @@
 					},
 					"response": [
 						{
-							"name": "GET /user",
+							"name": "Default",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -396,7 +396,7 @@
 					},
 					"response": [
 						{
-							"name": "GET /user/:id",
+							"name": "Default",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -515,13 +515,18 @@
 					},
 					"response": [
 						{
-							"name": "PUT /user/:id",
+							"name": "Default",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
 									{
 										"key": "Content-Type",
 										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U",
 										"type": "text"
 									}
 								],
@@ -577,15 +582,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "4"
+									"value": "174"
 								},
 								{
 									"key": "Etag",
-									"value": "W/\"4-X/5TO4MPCKAyY0ipFgr6/IraRNs\""
+									"value": "W/\"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 19 Dec 2018 12:47:36 GMT"
+									"value": "Wed, 19 Dec 2018 16:37:40 GMT"
 								},
 								{
 									"key": "Via",
@@ -593,7 +598,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "true"
+							"body": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}"
 						}
 					]
 				}

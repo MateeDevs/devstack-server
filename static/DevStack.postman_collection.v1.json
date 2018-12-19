@@ -221,7 +221,7 @@
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "true",
+					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
