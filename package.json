@@ -1,0 +1,20 @@
+{
+  "name": "devstack-server",
+  "version": "1.0.0",
+  "description": "Node.js server and REST API for QEST iOS/Android DevStack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "pchmelar",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.4"
+  }
+}
