@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevStack</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.configure({
+            tabReplace: '    ',
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>body {
+    position: relative;
+}
+
+h1 {
+    margin-top: 5px;
+}
+
+h1, h2, h3, h4 {
+    color: #2b2b2b;
+}
+
+h2:after {
+    content: ' ';
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    display: none;
+    position: absolute;
+    margin-left: 8px;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
+    color: #a5a5a5;
+    display: initial;
+}
+
+.nav.nav-tabs > li > a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tab-content {
+    padding-top: 8px;
+}
+
+.table {
+    margin-bottom: 8px;
+}
+
+pre {
+    border-radius: 0px;
+    border: none;
+}
+
+pre code {
+    margin: -9.5px;
+}
+
+.request {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.response-text-sample {
+    padding: 0px !important;
+}
+
+.response-text-sample pre {
+    margin-bottom: 0px;
+}
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #2b2b2b;
+    padding-top: 20px;
+}
+
+#sidebar-wrapper ul {
+    width: 250px;
+}
+
+#sidebar-wrapper ul li {
+    margin-right: 10px;
+}
+
+#sidebar-wrapper ul li a:hover {
+    background: inherit;
+    text-decoration: none;
+}
+
+#sidebar-wrapper ul li a {
+    display: block;
+    color: #ECF0F1;
+    padding: 6px 15px;
+}
+
+#sidebar-wrapper ul li ul {
+    padding-left: 25px;
+}
+
+#sidebar-wrapper ul li ul li a {
+    padding: 1px 0px;
+}
+
+#sidebar-wrapper ul li a:hover,
+#sidebar-wrapper ul li a:focus {
+    color: #e0c46c;
+    border-right: solid 1px #e0c46c;
+}
+
+#sidebar-wrapper ul li.active > a {
+    color: #e0c46c;
+    border-right: solid 3px #e0c46c;
+}
+
+#sidebar-wrapper ul li:not(.active) ul {
+    display: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px 15px 15px 250px;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".scrollspy">
+<div id="sidebar-wrapper">
+    <div class="scrollspy">
+    <ul id="main-menu" data-spy="affix" class="nav">
+        <li>
+            <a href="#doc-general-notes">General notes</a>
+        </li>
+        
+        <li>
+            <a href="#doc-api-detail">API detail</a>
+        </li>
+        
+        
+        
+        <li>
+            <a href="#folder-auth">Auth</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-auth-post-login">POST /login</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-user">User</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-user-post-user">POST /user</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-get-user">GET /user</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-get-user-id">GET /user/:id</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-put-user-id">PUT /user/:id</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+</div>
+
+</div>
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>DevStack</h1>
+
+                <h2 id="doc-general-notes">
+                    General notes
+                    <a href="#doc-general-notes"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                <p>Documentation for QEST iOS/Android DevStack REST API.</p>
+
+
+                
+
+                <h2 id="doc-api-detail">
+                    API detail
+                    <a href="#doc-api-detail"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+
+
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-auth">
+                        Auth
+                        <a href="#folder-auth"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-auth-post-login">
+                            POST /login
+                            <a href="#request-auth-post-login"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Obtain authorization token</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-auth-post-login-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-auth-post-login-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-auth-post-login-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
+	"email": "petr.chmelar@qest.cz",
+	"pass": "11111111"
+}' "https://qest-devstack.herokuapp.com/login"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-auth-post-login-example-http">
+                                    <pre><code class="hljs http">POST /login HTTP/1.1
+Host: qest-devstack.herokuapp.com
+Content-Type: application/json
+
+{
+	"email": "petr.chmelar@qest.cz",
+	"pass": "11111111"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                
+                                <li role="presentation" class="active">
+                                    <a href="#request-auth-post-login-responses-7e94d5e2-8a51-48e6-8b75-544a93834856" data-toggle="tab">
+                                        
+                                            Response
+                                        
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            <div class="tab-content">
+                                
+                                <div class="tab-pane active" id="request-auth-post-login-responses-7e94d5e2-8a51-48e6-8b75-544a93834856">
+                                    <table class="table table-bordered">
+                                        <tr><th style="width: 20%;">Status</th><td>200 </td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Server</th><td>Cowboy</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">X-Powered-By</th><td>Express</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Origin</th><td>*</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Headers</th><td>Origin, X-Requested-With, Content-Type, Accept, Authorization</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Methods</th><td>PUT, POST, GET, DELETE, OPTIONS</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Type</th><td>application/json; charset=utf-8</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Length</th><td>270</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Etag</th><td>W/"10e-F0Aa+yQJw8kFDE3tpQ0fYGkjZ1M"</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Date</th><td>Wed, 19 Dec 2018 12:46:37 GMT</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Via</th><td>1.1 vegur</td></tr>
+                                        
+                                        
+                                            
+                                            <tr><td class="response-text-sample" colspan="2">
+                                                <pre><code>{
+    "id": "5c1a3d7b4a74580016faadf8",
+    "email": "petr.chmelar@qest.cz",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U"
+}</code></pre>
+                                            </td></tr>
+                                            
+                                        
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-user">
+                        User
+                        <a href="#folder-user"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-post-user">
+                            POST /user
+                            <a href="#request-user-post-user"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a new user (aka registration).</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-post-user-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-post-user-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-post-user-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
+	"email": "petr.chmelar@qest.cz",
+	"pass": "11111111",
+	"firstName": "Petr",
+	"lastName": "Chmelar",
+	"phone": "112567",
+	"bio": "iOS dev"
+}' "https://qest-devstack.herokuapp.com/user"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-post-user-example-http">
+                                    <pre><code class="hljs http">POST /user HTTP/1.1
+Host: qest-devstack.herokuapp.com
+Content-Type: application/json
+
+{
+	"email": "petr.chmelar@qest.cz",
+	"pass": "11111111",
+	"firstName": "Petr",
+	"lastName": "Chmelar",
+	"phone": "112567",
+	"bio": "iOS dev"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                
+                                <li role="presentation" class="active">
+                                    <a href="#request-user-post-user-responses-6dc956da-ce3b-4d02-a84f-aef4c765b2ca" data-toggle="tab">
+                                        
+                                            Response
+                                        
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            <div class="tab-content">
+                                
+                                <div class="tab-pane active" id="request-user-post-user-responses-6dc956da-ce3b-4d02-a84f-aef4c765b2ca">
+                                    <table class="table table-bordered">
+                                        <tr><th style="width: 20%;">Status</th><td>201 </td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Server</th><td>Cowboy</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">X-Powered-By</th><td>Express</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Origin</th><td>*</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Headers</th><td>Origin, X-Requested-With, Content-Type, Accept, Authorization</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Methods</th><td>PUT, POST, GET, DELETE, OPTIONS</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Location</th><td>/user</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Type</th><td>application/json; charset=utf-8</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Length</th><td>174</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Etag</th><td>W/"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI"</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Date</th><td>Wed, 19 Dec 2018 12:45:47 GMT</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Via</th><td>1.1 vegur</td></tr>
+                                        
+                                        
+                                            
+                                            <tr><td class="response-text-sample" colspan="2">
+                                                <pre><code>{
+    "id": "5c1a3d7b4a74580016faadf8",
+    "email": "petr.chmelar@qest.cz",
+    "firstName": "Petr",
+    "lastName": "Chmelar",
+    "phone": "112567",
+    "bio": "iOS dev"
+}</code></pre>
+                                            </td></tr>
+                                            
+                                        
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-get-user">
+                            GET /user
+                            <a href="#request-user-get-user"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>List all users</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-get-user-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-get-user-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-get-user-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/user"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-get-user-example-http">
+                                    <pre><code class="hljs http">GET /user HTTP/1.1
+Host: qest-devstack.herokuapp.com
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                
+                                <li role="presentation" class="active">
+                                    <a href="#request-user-get-user-responses-2afb41ed-7c0b-4822-b88a-01fbdb3b716e" data-toggle="tab">
+                                        
+                                            Response
+                                        
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            <div class="tab-content">
+                                
+                                <div class="tab-pane active" id="request-user-get-user-responses-2afb41ed-7c0b-4822-b88a-01fbdb3b716e">
+                                    <table class="table table-bordered">
+                                        <tr><th style="width: 20%;">Status</th><td>200 </td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Server</th><td>Cowboy</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">X-Powered-By</th><td>Express</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Origin</th><td>*</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Headers</th><td>Origin, X-Requested-With, Content-Type, Accept, Authorization</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Methods</th><td>PUT, POST, GET, DELETE, OPTIONS</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Type</th><td>application/json; charset=utf-8</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Length</th><td>210</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Etag</th><td>W/"d2-0+KGnsxrN7JmJQphNVz4aMQXfi8"</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Date</th><td>Wed, 19 Dec 2018 12:47:07 GMT</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Via</th><td>1.1 vegur</td></tr>
+                                        
+                                        
+                                            
+                                            <tr><td class="response-text-sample" colspan="2">
+                                                <pre><code>[
+    {
+        "id": "5c1a3d7b4a74580016faadf8",
+        "email": "petr.chmelar@qest.cz",
+        "firstName": "Petr",
+        "lastName": "Chmelar",
+        "phone": "112567",
+        "bio": "iOS dev"
+    }
+]</code></pre>
+                                            </td></tr>
+                                            
+                                        
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-get-user-id">
+                            GET /user/:id
+                            <a href="#request-user-get-user-id"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>View a specified user</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-get-user-id-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-get-user-id-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-get-user-id-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-get-user-id-example-http">
+                                    <pre><code class="hljs http">GET /user/5c1a3d7b4a74580016faadf8 HTTP/1.1
+Host: qest-devstack.herokuapp.com
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                
+                                <li role="presentation" class="active">
+                                    <a href="#request-user-get-user-id-responses-071dab30-7036-447b-a409-e11cd9342cb6" data-toggle="tab">
+                                        
+                                            Response
+                                        
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            <div class="tab-content">
+                                
+                                <div class="tab-pane active" id="request-user-get-user-id-responses-071dab30-7036-447b-a409-e11cd9342cb6">
+                                    <table class="table table-bordered">
+                                        <tr><th style="width: 20%;">Status</th><td>200 </td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Server</th><td>Cowboy</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">X-Powered-By</th><td>Express</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Origin</th><td>*</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Headers</th><td>Origin, X-Requested-With, Content-Type, Accept, Authorization</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Methods</th><td>PUT, POST, GET, DELETE, OPTIONS</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Type</th><td>application/json; charset=utf-8</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Length</th><td>174</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Etag</th><td>W/"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI"</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Date</th><td>Wed, 19 Dec 2018 12:47:24 GMT</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Via</th><td>1.1 vegur</td></tr>
+                                        
+                                        
+                                            
+                                            <tr><td class="response-text-sample" colspan="2">
+                                                <pre><code>{
+    "id": "5c1a3d7b4a74580016faadf8",
+    "email": "petr.chmelar@qest.cz",
+    "firstName": "Petr",
+    "lastName": "Chmelar",
+    "phone": "112567",
+    "bio": "iOS dev"
+}</code></pre>
+                                            </td></tr>
+                                            
+                                        
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-put-user-id">
+                            PUT /user/:id
+                            <a href="#request-user-put-user-id"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Edit a specified user</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-put-user-id-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-put-user-id-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-put-user-id-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" -d '{
+	"pass": "11111111",
+	"firstName": "Petr",
+	"lastName": "Chmelar",
+	"phone": "112567",
+	"bio": "iOS dev"
+}' "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-put-user-id-example-http">
+                                    <pre><code class="hljs http">PUT /user/5c1a3d7b4a74580016faadf8 HTTP/1.1
+Host: qest-devstack.herokuapp.com
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U
+
+{
+	"pass": "11111111",
+	"firstName": "Petr",
+	"lastName": "Chmelar",
+	"phone": "112567",
+	"bio": "iOS dev"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                
+                                <li role="presentation" class="active">
+                                    <a href="#request-user-put-user-id-responses-ab0b8e5d-f97f-4425-bd55-151f67074c83" data-toggle="tab">
+                                        
+                                            Response
+                                        
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            <div class="tab-content">
+                                
+                                <div class="tab-pane active" id="request-user-put-user-id-responses-ab0b8e5d-f97f-4425-bd55-151f67074c83">
+                                    <table class="table table-bordered">
+                                        <tr><th style="width: 20%;">Status</th><td>200 </td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Server</th><td>Cowboy</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">X-Powered-By</th><td>Express</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Origin</th><td>*</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Headers</th><td>Origin, X-Requested-With, Content-Type, Accept, Authorization</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Access-Control-Allow-Methods</th><td>PUT, POST, GET, DELETE, OPTIONS</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Type</th><td>application/json; charset=utf-8</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Content-Length</th><td>4</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Etag</th><td>W/"4-X/5TO4MPCKAyY0ipFgr6/IraRNs"</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Date</th><td>Wed, 19 Dec 2018 12:47:36 GMT</td></tr>
+                                        
+                                        <tr><th style="width: 20%;">Via</th><td>1.1 vegur</td></tr>
+                                        
+                                        
+                                            
+                                            <tr><td class="response-text-sample" colspan="2">
+                                                <pre><code>true</code></pre>
+                                            </td></tr>
+                                            
+                                        
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("table:not(.table)").addClass('table table-bordered');
+    });
+</script>
+</body>
+</html>
