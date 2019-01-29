@@ -48,7 +48,7 @@ exports.create = function(req, res) {
             if (err) throw err;
             res.statusCode = 201;
             res.location('/user/' + newUser.id);
-            res.json(newUser);
+            res.json(newUser.detail());
           });
 
         });
@@ -60,9 +60,8 @@ exports.create = function(req, res) {
 
 // route middleware to get a specific user
 exports.get = function(req, res, next) {
-  let userId = req.token.userId
-  if (userId) {
-    User.findById(userId, function(err, user) {
+  if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+    User.findById(req.params.userId, function(err, user) {
       if (err) throw err;
       if (user === null) {
         res.statusCode = 404;
@@ -73,15 +72,15 @@ exports.get = function(req, res, next) {
       }
     });
   } else {
-    res.statusCode = 401;
-    res.send('Error 401: Unauthorized');
+    res.statusCode = 400;
+    res.send('Error 400: Invalid ID format');
   }
 };
 
 exports.view = function(req, res) {
   let user = res.locals.user;
   if (user) {
-    res.json(user);
+    res.json(user.detail());
   }
 };
 
@@ -99,13 +98,13 @@ exports.update = function(req, res) {
         user.pass = hash
         user.save(function(err) {
           if (err) throw err;
-          res.json(user);
+          res.json(user.detail());
         });
       });
     } else {
       user.save(function(err) {
         if (err) throw err;
-        res.json(user);
+        res.json(user.detail());
       });
     }
   }

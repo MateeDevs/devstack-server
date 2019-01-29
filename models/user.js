@@ -13,9 +13,22 @@ let userSchema = new Schema({
 	phone: String,
 	bio: String,
 	pictureUrl: String
-});
+});	
 
+// default representantion (aka preview)
 userSchema.methods.toJSON = function() {
+	let obj = this.toObject();
+	let json = {
+		id: obj._id,
+		email: obj.email,
+		firstName: obj.firstName,
+		lastName: obj.lastName
+	}
+	return json;
+}
+
+// detailed representation
+userSchema.methods.detail = function() {
 	let obj = this.toObject();
 	let json = {
 		id: obj._id,
