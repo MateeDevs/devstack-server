@@ -6,11 +6,48 @@ let bcrypt = require('bcryptjs');
 let jwt = require('jsonwebtoken');
 
 exports.list = function(req, res) {
-  User.find({}, function(err, users) {
-    if (err) throw err;
-    res.json(users);
-  });
-};
+  if (!req.query.page, !req.query.limit) {
+    res.statusCode = 400;
+    res.send('Error 400: Missing query parameters for page or limit');
+  } else {
+
+    // pagination
+    let page = parseInt(req.query.page);
+    let limit = parseInt(req.query.limit);
+    if (limit > 100) limit = 100;
+
+    User.count({}, function(err, count) {
+      if (err) throw err;
+
+      let pages = 0;
+      if (count > 0) pages = Math.ceil(count / limit)-1 || 0;
+
+      if (page < 0) page = 0;
+      if (page > pages) page = pages;
+
+      User.find().limit(limit).skip(page * limit).exec(function(err, users) {
+        if (err) throw err;
+
+        // construct pagination links
+        let links = []
+        links.push('</user?page=' + page + '&limit=' + limit + ' rel="self">');
+        if (page > 0) links.push('</image?page=' + (page - 1) + '&limit=' + limit + ' rel="prev">');
+        if (page < pages) links.push('</image?page=' + (page + 1) + '&limit=' + limit + ' rel="next">');
+        links.push('</image?page=0&limit=' + limit + ' rel="first">');
+        links.push('</image?page=' + pages + '&limit=' + limit + ' rel="last">');
+        res.header('Link', links);
+
+        // construct pagination response
+        res.json({
+          'page': page,
+          'limit': limit,
+          'lastPage': pages,
+          'data': images
+        });
+      }); 
+    });
+  }
+}
 
 exports.create = function(req, res) {
   if (!req.body.hasOwnProperty('email') ||
