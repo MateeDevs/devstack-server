@@ -16,7 +16,7 @@ exports.list = function(req, res) {
     let limit = parseInt(req.query.limit);
     if (limit > 100) limit = 100;
 
-    User.count({}, function(err, count) {
+    User.estimatedDocumentCount().exec(function(err, count) {
       if (err) throw err;
 
       let pages = 0;
@@ -31,10 +31,10 @@ exports.list = function(req, res) {
         // construct pagination links
         let links = []
         links.push('</user?page=' + page + '&limit=' + limit + ' rel="self">');
-        if (page > 0) links.push('</image?page=' + (page - 1) + '&limit=' + limit + ' rel="prev">');
-        if (page < pages) links.push('</image?page=' + (page + 1) + '&limit=' + limit + ' rel="next">');
-        links.push('</image?page=0&limit=' + limit + ' rel="first">');
-        links.push('</image?page=' + pages + '&limit=' + limit + ' rel="last">');
+        if (page > 0) links.push('</user?page=' + (page - 1) + '&limit=' + limit + ' rel="prev">');
+        if (page < pages) links.push('</user?page=' + (page + 1) + '&limit=' + limit + ' rel="next">');
+        links.push('</user?page=0&limit=' + limit + ' rel="first">');
+        links.push('</user?page=' + pages + '&limit=' + limit + ' rel="last">');
         res.header('Link', links);
 
         // construct pagination response
@@ -42,7 +42,7 @@ exports.list = function(req, res) {
           'page': page,
           'limit': limit,
           'lastPage': pages,
-          'data': images
+          'data': users
         });
       }); 
     });
