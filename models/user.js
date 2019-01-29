@@ -11,7 +11,8 @@ let userSchema = new Schema({
 	firstName: String,
 	lastName: String,
 	phone: String,
-	bio: String
+	bio: String,
+	pictureUrl: String
 });
 
 userSchema.methods.toJSON = function() {
@@ -22,7 +23,8 @@ userSchema.methods.toJSON = function() {
 		firstName: obj.firstName,
 		lastName: obj.lastName,
 		phone: obj.phone,
-		bio: obj.bio
+		bio: obj.bio,
+		pictureUrl: obj.pictureUrl
 	}
 	return json;
 }

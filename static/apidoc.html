@@ -162,7 +162,11 @@ pre code {
             <ul>
                 
                 <li>
-                    <a href="#request-auth-post-login">POST /login</a>
+                    <a href="#request-auth-post-auth-login">POST /auth/login</a>
+                </li>
+
+                <li>
+                    <a href="#request-auth-post-auth-registration">POST /auth/registration</a>
                 </li>
                 
             </ul>
@@ -172,10 +176,6 @@ pre code {
         <li>
             <a href="#folder-user">User</a>
             <ul>
-                
-                <li>
-                    <a href="#request-user-post-user">POST /user</a>
-                </li>
                 
                 <li>
                     <a href="#request-user-get-user">GET /user</a>
@@ -234,9 +234,9 @@ pre code {
                     
                     <div class="request">
 
-                        <h4 id="request-auth-post-login">
-                            POST /login
-                            <a href="#request-auth-post-login"><i class="glyphicon glyphicon-link"></i></a>
+                        <h4 id="request-auth-post-auth-login">
+                            POST /auth/login
+                            <a href="#request-auth-post-auth-login"><i class="glyphicon glyphicon-link"></i></a>
                         </h4>
 
                         <div><p>Obtain authorization token</p>
@@ -244,18 +244,18 @@ pre code {
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#request-auth-post-login-example-curl" data-toggle="tab">Curl</a></li>
-                                <li role="presentation"><a href="#request-auth-post-login-example-http" data-toggle="tab">HTTP</a></li>
+                                <li role="presentation" class="active"><a href="#request-auth-post-auth-login-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-auth-post-auth-login-example-http" data-toggle="tab">HTTP</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="request-auth-post-login-example-curl">
+                                <div class="tab-pane active" id="request-auth-post-auth-login-example-curl">
                                     <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
 	"email": "petr.chmelar@qest.cz",
 	"pass": "11111111"
-}' "https://qest-devstack.herokuapp.com/login"</code></pre>
+}' "https://qest-devstack.herokuapp.com/api/auth/login"</code></pre>
                                 </div>
-                                <div class="tab-pane" id="request-auth-post-login-example-http">
-                                    <pre><code class="hljs http">POST /login HTTP/1.1
+                                <div class="tab-pane" id="request-auth-post-auth-login-example-http">
+                                    <pre><code class="hljs http">POST /auth/login HTTP/1.1
 Host: qest-devstack.herokuapp.com
 Content-Type: application/json
 
@@ -272,7 +272,7 @@ Content-Type: application/json
                             <ul class="nav nav-tabs" role="tablist">
                                 
                                 <li role="presentation" class="active">
-                                    <a href="#request-auth-post-login-responses-7e94d5e2-8a51-48e6-8b75-544a93834856" data-toggle="tab">
+                                    <a href="#request-auth-post-auth-login-responses-7e94d5e2-8a51-48e6-8b75-544a93834856" data-toggle="tab">
                                         
                                             Response
                                         
@@ -282,7 +282,7 @@ Content-Type: application/json
                             </ul>
                             <div class="tab-content">
                                 
-                                <div class="tab-pane active" id="request-auth-post-login-responses-7e94d5e2-8a51-48e6-8b75-544a93834856">
+                                <div class="tab-pane active" id="request-auth-post-auth-login-responses-7e94d5e2-8a51-48e6-8b75-544a93834856">
                                     <table class="table table-bordered">
                                         <tr><th style="width: 20%;">Status</th><td>200 </td></tr>
                                         
@@ -312,7 +312,7 @@ Content-Type: application/json
                                             
                                             <tr><td class="response-text-sample" colspan="2">
                                                 <pre><code>{
-    "id": "5c1a3d7b4a74580016faadf8",
+    "userId": "5c1a3d7b4a74580016faadf8",
     "email": "petr.chmelar@qest.cz",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U"
 }</code></pre>
@@ -328,26 +328,14 @@ Content-Type: application/json
 
                         <hr>
                     </div>
-                    
-
-                </div>
-                
-                
-                <div class="endpoints-group">
-                    <h3 id="folder-user">
-                        User
-                        <a href="#folder-user"><i class="glyphicon glyphicon-link"></i></a>
-                    </h3>
-
-                    <div></div>
 
                     
                     
                     <div class="request">
 
-                        <h4 id="request-user-post-user">
-                            POST /user
-                            <a href="#request-user-post-user"><i class="glyphicon glyphicon-link"></i></a>
+                        <h4 id="request-auth-post-auth-registration">
+                            POST /auth/registration
+                            <a href="#request-auth-post-auth-registration"><i class="glyphicon glyphicon-link"></i></a>
                         </h4>
 
                         <div><p>Create a new user (aka registration).</p>
@@ -355,32 +343,28 @@ Content-Type: application/json
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#request-user-post-user-example-curl" data-toggle="tab">Curl</a></li>
-                                <li role="presentation"><a href="#request-user-post-user-example-http" data-toggle="tab">HTTP</a></li>
+                                <li role="presentation" class="active"><a href="#request-auth-post-auth-registration-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-auth-post-auth-registration-example-http" data-toggle="tab">HTTP</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="request-user-post-user-example-curl">
+                                <div class="tab-pane active" id="request-auth-post-auth-registration-example-curl">
                                     <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
-	"email": "petr.chmelar@qest.cz",
-	"pass": "11111111",
-	"firstName": "Petr",
-	"lastName": "Chmelar",
-	"phone": "112567",
-	"bio": "iOS dev"
-}' "https://qest-devstack.herokuapp.com/user"</code></pre>
+    "email": "petr.chmelar@qest.cz",
+    "pass": "11111111",
+    "firstName": "Petr",
+    "lastName": "Chmelar"
+}' "https://qest-devstack.herokuapp.com/api/auth/registration"</code></pre>
                                 </div>
-                                <div class="tab-pane" id="request-user-post-user-example-http">
-                                    <pre><code class="hljs http">POST /user HTTP/1.1
+                                <div class="tab-pane" id="request-auth-post-auth-registration-example-http">
+                                    <pre><code class="hljs http">POST /auth/registration HTTP/1.1
 Host: qest-devstack.herokuapp.com
 Content-Type: application/json
 
 {
-	"email": "petr.chmelar@qest.cz",
-	"pass": "11111111",
-	"firstName": "Petr",
-	"lastName": "Chmelar",
-	"phone": "112567",
-	"bio": "iOS dev"
+    "email": "petr.chmelar@qest.cz",
+    "pass": "11111111",
+    "firstName": "Petr",
+    "lastName": "Chmelar"
 }</code></pre>
                                 </div>
                             </div>
@@ -391,7 +375,7 @@ Content-Type: application/json
                             <ul class="nav nav-tabs" role="tablist">
                                 
                                 <li role="presentation" class="active">
-                                    <a href="#request-user-post-user-responses-6dc956da-ce3b-4d02-a84f-aef4c765b2ca" data-toggle="tab">
+                                    <a href="#request-auth-post-auth-registration-responses-6dc956da-ce3b-4d02-a84f-aef4c765b2ca" data-toggle="tab">
                                         
                                             Response
                                         
@@ -401,7 +385,7 @@ Content-Type: application/json
                             </ul>
                             <div class="tab-content">
                                 
-                                <div class="tab-pane active" id="request-user-post-user-responses-6dc956da-ce3b-4d02-a84f-aef4c765b2ca">
+                                <div class="tab-pane active" id="request-auth-post-auth-registration-responses-6dc956da-ce3b-4d02-a84f-aef4c765b2ca">
                                     <table class="table table-bordered">
                                         <tr><th style="width: 20%;">Status</th><td>201 </td></tr>
                                         
@@ -417,7 +401,7 @@ Content-Type: application/json
                                         
                                         <tr><th style="width: 20%;">Access-Control-Allow-Methods</th><td>PUT, POST, GET, DELETE, OPTIONS</td></tr>
                                         
-                                        <tr><th style="width: 20%;">Location</th><td>/user</td></tr>
+                                        <tr><th style="width: 20%;">Location</th><td>/user/5c1a3d7b4a74580016faadf8</td></tr>
                                         
                                         <tr><th style="width: 20%;">Content-Type</th><td>application/json; charset=utf-8</td></tr>
                                         
@@ -436,9 +420,7 @@ Content-Type: application/json
     "id": "5c1a3d7b4a74580016faadf8",
     "email": "petr.chmelar@qest.cz",
     "firstName": "Petr",
-    "lastName": "Chmelar",
-    "phone": "112567",
-    "bio": "iOS dev"
+    "lastName": "Chmelar"
 }</code></pre>
                                             </td></tr>
                                             
@@ -452,6 +434,20 @@ Content-Type: application/json
 
                         <hr>
                     </div>
+
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-user">
+                        User
+                        <a href="#folder-user"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
                     
                     
                     <div class="request">
@@ -471,7 +467,7 @@ Content-Type: application/json
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-user-get-user-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/user"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/api/user"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-user-get-user-example-http">
                                     <pre><code class="hljs http">GET /user HTTP/1.1
@@ -567,7 +563,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-user-get-user-id-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-user-get-user-id-example-http">
                                     <pre><code class="hljs http">GET /user/5c1a3d7b4a74580016faadf8 HTTP/1.1
@@ -667,7 +663,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM
 	"lastName": "Chmelar",
 	"phone": "112567",
 	"bio": "iOS dev"
-}' "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"</code></pre>
+}' "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-user-put-user-id-example-http">
                                     <pre><code class="hljs http">PUT /user/5c1a3d7b4a74580016faadf8 HTTP/1.1

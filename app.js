@@ -49,8 +49,8 @@ app.get('/', function(req, res) {
   res.type('text/plain'); // set content-type
   res.send('QEST DevStack'); // send text response
 });
-app.use('/login', require('./routes/loginRouter'));
-app.use('/user', require('./routes/userRouter'));
+app.use('/api/auth', require('./routes/authRouter'));
+app.use('/api/user', require('./routes/userRouter'));
 
 // serve static files from the local storage
 app.use(express.static('static'));

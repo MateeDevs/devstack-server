@@ -16,9 +16,7 @@ exports.create = function(req, res) {
   if (!req.body.hasOwnProperty('email') ||
     !req.body.hasOwnProperty('pass') ||
     !req.body.hasOwnProperty('firstName') ||
-    !req.body.hasOwnProperty('lastName') ||
-    !req.body.hasOwnProperty('phone') ||
-    !req.body.hasOwnProperty('bio')) {
+    !req.body.hasOwnProperty('lastName')) {
     res.statusCode = 400;
     res.send('Error 400: POST syntax incorrect');
   } else {
@@ -37,19 +35,19 @@ exports.create = function(req, res) {
           // create a new user
           let newUser = User({
             email: req.body.email,
-            emailConfirmed: false,
+            emailConfirmed: true,
             pass: hash,
             firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            phone: req.body.phone,
-            bio: req.body.bio
+            lastName: req.body.lastName
           });
+          if (req.body.hasOwnProperty('phone')) user.phone = req.body.phone;
+          if (req.body.hasOwnProperty('bio')) user.bio = req.body.bio;
 
           // save the user
           newUser.save(function(err) {
             if (err) throw err;
             res.statusCode = 201;
-            res.location('/user');
+            res.location('/user/' + newUser.id);
             res.json(newUser);
           });
 
