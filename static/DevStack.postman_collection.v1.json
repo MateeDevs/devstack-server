@@ -41,7 +41,8 @@
 			"collection": "229e92bb-c802-461c-a35b-9e7b31dcd9db",
 			"folder": null,
 			"order": [
-				"bf894250-00f5-4576-88ff-9e74b1629678"
+				"bf894250-00f5-4576-88ff-9e74b1629678",
+				"038815bb-2174-4ffc-9d35-fc5f0c2e8ddf"
 			],
 			"folders_order": []
 		},
@@ -54,7 +55,6 @@
 			"collection": "229e92bb-c802-461c-a35b-9e7b31dcd9db",
 			"folder": null,
 			"order": [
-				"038815bb-2174-4ffc-9d35-fc5f0c2e8ddf",
 				"734e5441-66ee-472c-a65c-3b53e5724a1a",
 				"c6492533-9b0d-40f8-a13f-0ab31d4f1d25",
 				"19743203-66d3-4bf9-b1a1-8deccd03b47f"
@@ -65,8 +65,8 @@
 	"requests": [
 		{
 			"id": "038815bb-2174-4ffc-9d35-fc5f0c2e8ddf",
-			"name": "POST /user",
-			"url": "https://qest-devstack.herokuapp.com/user",
+			"name": "POST /auth/registration",
+			"url": "https://qest-devstack.herokuapp.com/api/auth/registration",
 			"description": "Create a new user (aka registration).",
 			"data": [],
 			"dataMode": "raw",
@@ -84,21 +84,21 @@
 			"queryParams": [],
 			"auth": null,
 			"events": null,
-			"folder": "fadeaedb-d8ef-413c-816e-d60458804dc4",
+			"folder": "ebd99fc5-94dc-4fc5-802a-1d2e1d357e32",
 			"responses": [
 				{
 					"id": "6dc956da-ce3b-4d02-a84f-aef4c765b2ca",
-					"name": "POST /user",
+					"name": "Default",
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}",
+					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\"\n}",
 					"responseCode": {
 						"code": 201,
 						"name": "Created"
 					},
 					"requestObject": {
-						"data": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\",\n\t\"phone\": \"112567\",\n\t\"bio\": \"iOS dev\"\n}",
+						"data": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}",
 						"dataMode": "raw",
 						"headerData": [
 							{
@@ -112,68 +112,56 @@
 						"method": "POST",
 						"pathVariableData": [],
 						"queryParams": [],
-						"url": "https://qest-devstack.herokuapp.com/user"
+						"url": "https://qest-devstack.herokuapp.com/auth/registration"
 					},
 					"headers": [
 						{
 							"key": "Server",
-							"value": "Cowboy",
-							"name": "Server"
+							"value": "Cowboy"
 						},
 						{
 							"key": "Connection",
-							"value": "keep-alive",
-							"name": "Connection"
+							"value": "keep-alive"
 						},
 						{
 							"key": "X-Powered-By",
-							"value": "Express",
-							"name": "X-Powered-By"
+							"value": "Express"
 						},
 						{
 							"key": "Access-Control-Allow-Origin",
-							"value": "*",
-							"name": "Access-Control-Allow-Origin"
+							"value": "*"
 						},
 						{
 							"key": "Access-Control-Allow-Headers",
-							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-							"name": "Access-Control-Allow-Headers"
+							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
 						},
 						{
 							"key": "Access-Control-Allow-Methods",
-							"value": "PUT, POST, GET, DELETE, OPTIONS",
-							"name": "Access-Control-Allow-Methods"
+							"value": "PUT, POST, GET, DELETE, OPTIONS"
 						},
 						{
 							"key": "Location",
-							"value": "/user",
-							"name": "Location"
+							"value": "/user"
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json; charset=utf-8",
-							"name": "Content-Type"
+							"value": "application/json; charset=utf-8"
 						},
 						{
 							"key": "Content-Length",
-							"value": "174",
-							"name": "Content-Length"
+							"value": "174"
 						},
 						{
 							"key": "Etag",
-							"value": "W/\"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI\"",
-							"name": "Etag"
+							"value": "W/\"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 19 Dec 2018 12:45:47 GMT",
-							"name": "Date"
+							"value": "Wed, 19 Dec 2018 12:45:47 GMT"
 						},
 						{
 							"key": "Via",
-							"value": "1.1 vegur",
-							"name": "Via"
+							"value": "1.1 vegur"
 						}
 					],
 					"cookies": null,
@@ -181,15 +169,15 @@
 					"collection": "229e92bb-c802-461c-a35b-9e7b31dcd9db"
 				}
 			],
-			"rawModeData": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\",\n\t\"phone\": \"112567\",\n\t\"bio\": \"iOS dev\"\n}",
+			"rawModeData": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}",
 			"headers": "Content-Type: application/json\n",
 			"pathVariables": {}
 		},
 		{
 			"id": "19743203-66d3-4bf9-b1a1-8deccd03b47f",
 			"name": "PUT /user/:id",
-			"url": "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8",
-			"description": "Edit a specified user",
+			"url": "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
+			"description": "Edit a specified user. Returns modified User object with all of the properties.",
 			"data": [],
 			"dataMode": "raw",
 			"headerData": [
@@ -216,8 +204,8 @@
 			"folder": "fadeaedb-d8ef-413c-816e-d60458804dc4",
 			"responses": [
 				{
-					"id": "ab0b8e5d-f97f-4425-bd55-151f67074c83",
-					"name": "PUT /user/:id",
+					"id": "4eeb68ed-985a-48c5-9884-d2f66a053cf8",
+					"name": "Default",
 					"status": null,
 					"mime": null,
 					"language": "json",
@@ -236,6 +224,13 @@
 								"description": "",
 								"type": "text",
 								"enabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U",
+								"description": "",
+								"type": "text",
+								"enabled": true
 							}
 						],
 						"method": "PUT",
@@ -246,58 +241,47 @@
 					"headers": [
 						{
 							"key": "Server",
-							"value": "Cowboy",
-							"name": "Server"
+							"value": "Cowboy"
 						},
 						{
 							"key": "Connection",
-							"value": "keep-alive",
-							"name": "Connection"
+							"value": "keep-alive"
 						},
 						{
 							"key": "X-Powered-By",
-							"value": "Express",
-							"name": "X-Powered-By"
+							"value": "Express"
 						},
 						{
 							"key": "Access-Control-Allow-Origin",
-							"value": "*",
-							"name": "Access-Control-Allow-Origin"
+							"value": "*"
 						},
 						{
 							"key": "Access-Control-Allow-Headers",
-							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-							"name": "Access-Control-Allow-Headers"
+							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
 						},
 						{
 							"key": "Access-Control-Allow-Methods",
-							"value": "PUT, POST, GET, DELETE, OPTIONS",
-							"name": "Access-Control-Allow-Methods"
+							"value": "PUT, POST, GET, DELETE, OPTIONS"
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json; charset=utf-8",
-							"name": "Content-Type"
+							"value": "application/json; charset=utf-8"
 						},
 						{
 							"key": "Content-Length",
-							"value": "4",
-							"name": "Content-Length"
+							"value": "174"
 						},
 						{
 							"key": "Etag",
-							"value": "W/\"4-X/5TO4MPCKAyY0ipFgr6/IraRNs\"",
-							"name": "Etag"
+							"value": "W/\"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 19 Dec 2018 12:47:36 GMT",
-							"name": "Date"
+							"value": "Wed, 19 Dec 2018 16:37:40 GMT"
 						},
 						{
 							"key": "Via",
-							"value": "1.1 vegur",
-							"name": "Via"
+							"value": "1.1 vegur"
 						}
 					],
 					"cookies": null,
@@ -312,8 +296,8 @@
 		{
 			"id": "734e5441-66ee-472c-a65c-3b53e5724a1a",
 			"name": "GET /user",
-			"url": "https://qest-devstack.herokuapp.com/user",
-			"description": "List all users",
+			"url": "https://qest-devstack.herokuapp.com/api/user?page=0&limit=100",
+			"description": "List all users. Returns array with previews of User objects (id, email, firstName, lastName).",
 			"data": null,
 			"dataMode": null,
 			"headerData": [
@@ -334,18 +318,33 @@
 			],
 			"method": "GET",
 			"pathVariableData": [],
-			"queryParams": [],
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "limit",
+					"value": "100",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
 			"auth": null,
 			"events": null,
 			"folder": "fadeaedb-d8ef-413c-816e-d60458804dc4",
 			"responses": [
 				{
-					"id": "2afb41ed-7c0b-4822-b88a-01fbdb3b716e",
-					"name": "GET /user",
+					"id": "29467fef-709e-420c-a3a1-579288b81b57",
+					"name": "Default",
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "[\n    {\n        \"id\": \"5c1a3d7b4a74580016faadf8\",\n        \"email\": \"petr.chmelar@qest.cz\",\n        \"firstName\": \"Petr\",\n        \"lastName\": \"Chmelar\",\n        \"phone\": \"112567\",\n        \"bio\": \"iOS dev\"\n    }\n]",
+					"text": "{\n    \"page\": 0,\n    \"limit\": 100,\n    \"lastPage\": 0,\n    \"data\": [\n        {\n            \"id\": \"5c1a3d7b4a74580016faadf8\",\n            \"email\": \"petr.chmelar@qest.cz\",\n            \"firstName\": \"Petr\",\n            \"lastName\": \"Chmelar\"\n        },\n        {\n            \"id\": \"5c50224464662000177f69a9\",\n            \"email\": \"user1@qest.cz\",\n            \"firstName\": \"User1\",\n            \"lastName\": \"Qest\"\n        }\n    ]\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -360,68 +359,91 @@
 								"description": "",
 								"type": "text",
 								"enabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U",
+								"description": "",
+								"type": "text",
+								"enabled": true
 							}
 						],
 						"method": "GET",
 						"pathVariableData": [],
-						"queryParams": [],
-						"url": "https://qest-devstack.herokuapp.com/user"
+						"queryParams": [
+							{
+								"key": "page",
+								"value": "0",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "limit",
+								"value": "100",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"url": "https://qest-devstack.herokuapp.com/api/user?page=0&limit=100"
 					},
 					"headers": [
 						{
 							"key": "Server",
-							"value": "Cowboy",
-							"name": "Server"
+							"value": "Cowboy"
 						},
 						{
 							"key": "Connection",
-							"value": "keep-alive",
-							"name": "Connection"
+							"value": "keep-alive"
 						},
 						{
 							"key": "X-Powered-By",
-							"value": "Express",
-							"name": "X-Powered-By"
+							"value": "Express"
 						},
 						{
 							"key": "Access-Control-Allow-Origin",
-							"value": "*",
-							"name": "Access-Control-Allow-Origin"
+							"value": "*"
 						},
 						{
 							"key": "Access-Control-Allow-Headers",
-							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-							"name": "Access-Control-Allow-Headers"
+							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
 						},
 						{
 							"key": "Access-Control-Allow-Methods",
-							"value": "PUT, POST, GET, DELETE, OPTIONS",
-							"name": "Access-Control-Allow-Methods"
+							"value": "PUT, POST, GET, DELETE, OPTIONS"
+						},
+						{
+							"key": "Link",
+							"value": "</user?page=0&limit=100 rel=\"self\">"
+						},
+						{
+							"key": "Link",
+							"value": "</user?page=0&limit=100 rel=\"first\">"
+						},
+						{
+							"key": "Link",
+							"value": "</user?page=0&limit=100 rel=\"last\">"
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json; charset=utf-8",
-							"name": "Content-Type"
+							"value": "application/json; charset=utf-8"
 						},
 						{
 							"key": "Content-Length",
-							"value": "210",
-							"name": "Content-Length"
+							"value": "423"
 						},
 						{
 							"key": "Etag",
-							"value": "W/\"d2-0+KGnsxrN7JmJQphNVz4aMQXfi8\"",
-							"name": "Etag"
+							"value": "W/\"1a7-tJ+zU8cTfxfT2zBXCKWMRwSt+OE\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 19 Dec 2018 12:47:07 GMT",
-							"name": "Date"
+							"value": "Sun, 03 Feb 2019 22:49:28 GMT"
 						},
 						{
 							"key": "Via",
-							"value": "1.1 vegur",
-							"name": "Via"
+							"value": "1.1 vegur"
 						}
 					],
 					"cookies": null,
@@ -434,8 +456,8 @@
 		},
 		{
 			"id": "bf894250-00f5-4576-88ff-9e74b1629678",
-			"name": "POST /login",
-			"url": "https://qest-devstack.herokuapp.com/login",
+			"name": "POST /auth/login",
+			"url": "https://qest-devstack.herokuapp.com/api/auth/login",
 			"description": "Obtain authorization token",
 			"data": [],
 			"dataMode": "raw",
@@ -457,11 +479,11 @@
 			"responses": [
 				{
 					"id": "7e94d5e2-8a51-48e6-8b75-544a93834856",
-					"name": "POST /login",
+					"name": "Default",
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U\"\n}",
+					"text": "{\n    \"userId\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U\"\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -481,63 +503,52 @@
 						"method": "POST",
 						"pathVariableData": [],
 						"queryParams": [],
-						"url": "https://qest-devstack.herokuapp.com/login"
+						"url": "https://qest-devstack.herokuapp.com/auth/login"
 					},
 					"headers": [
 						{
 							"key": "Server",
-							"value": "Cowboy",
-							"name": "Server"
+							"value": "Cowboy"
 						},
 						{
 							"key": "Connection",
-							"value": "keep-alive",
-							"name": "Connection"
+							"value": "keep-alive"
 						},
 						{
 							"key": "X-Powered-By",
-							"value": "Express",
-							"name": "X-Powered-By"
+							"value": "Express"
 						},
 						{
 							"key": "Access-Control-Allow-Origin",
-							"value": "*",
-							"name": "Access-Control-Allow-Origin"
+							"value": "*"
 						},
 						{
 							"key": "Access-Control-Allow-Headers",
-							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-							"name": "Access-Control-Allow-Headers"
+							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
 						},
 						{
 							"key": "Access-Control-Allow-Methods",
-							"value": "PUT, POST, GET, DELETE, OPTIONS",
-							"name": "Access-Control-Allow-Methods"
+							"value": "PUT, POST, GET, DELETE, OPTIONS"
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json; charset=utf-8",
-							"name": "Content-Type"
+							"value": "application/json; charset=utf-8"
 						},
 						{
 							"key": "Content-Length",
-							"value": "270",
-							"name": "Content-Length"
+							"value": "270"
 						},
 						{
 							"key": "Etag",
-							"value": "W/\"10e-F0Aa+yQJw8kFDE3tpQ0fYGkjZ1M\"",
-							"name": "Etag"
+							"value": "W/\"10e-F0Aa+yQJw8kFDE3tpQ0fYGkjZ1M\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 19 Dec 2018 12:46:37 GMT",
-							"name": "Date"
+							"value": "Wed, 19 Dec 2018 12:46:37 GMT"
 						},
 						{
 							"key": "Via",
-							"value": "1.1 vegur",
-							"name": "Via"
+							"value": "1.1 vegur"
 						}
 					],
 					"cookies": null,
@@ -552,8 +563,8 @@
 		{
 			"id": "c6492533-9b0d-40f8-a13f-0ab31d4f1d25",
 			"name": "GET /user/:id",
-			"url": "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8",
-			"description": "View a specified user",
+			"url": "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
+			"description": "View a specified user. Returns User object with all of the properties.",
 			"data": null,
 			"dataMode": null,
 			"headerData": [
@@ -581,7 +592,7 @@
 			"responses": [
 				{
 					"id": "071dab30-7036-447b-a409-e11cd9342cb6",
-					"name": "GET /user/:id",
+					"name": "Default",
 					"status": null,
 					"mime": null,
 					"language": "json",
@@ -610,58 +621,47 @@
 					"headers": [
 						{
 							"key": "Server",
-							"value": "Cowboy",
-							"name": "Server"
+							"value": "Cowboy"
 						},
 						{
 							"key": "Connection",
-							"value": "keep-alive",
-							"name": "Connection"
+							"value": "keep-alive"
 						},
 						{
 							"key": "X-Powered-By",
-							"value": "Express",
-							"name": "X-Powered-By"
+							"value": "Express"
 						},
 						{
 							"key": "Access-Control-Allow-Origin",
-							"value": "*",
-							"name": "Access-Control-Allow-Origin"
+							"value": "*"
 						},
 						{
 							"key": "Access-Control-Allow-Headers",
-							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-							"name": "Access-Control-Allow-Headers"
+							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
 						},
 						{
 							"key": "Access-Control-Allow-Methods",
-							"value": "PUT, POST, GET, DELETE, OPTIONS",
-							"name": "Access-Control-Allow-Methods"
+							"value": "PUT, POST, GET, DELETE, OPTIONS"
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json; charset=utf-8",
-							"name": "Content-Type"
+							"value": "application/json; charset=utf-8"
 						},
 						{
 							"key": "Content-Length",
-							"value": "174",
-							"name": "Content-Length"
+							"value": "174"
 						},
 						{
 							"key": "Etag",
-							"value": "W/\"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI\"",
-							"name": "Etag"
+							"value": "W/\"ae-Rgtv0ZErP3i8DBLl4ioDNTsMBuI\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 19 Dec 2018 12:47:24 GMT",
-							"name": "Date"
+							"value": "Wed, 19 Dec 2018 12:47:24 GMT"
 						},
 						{
 							"key": "Via",
-							"value": "1.1 vegur",
-							"name": "Via"
+							"value": "1.1 vegur"
 						}
 					],
 					"cookies": null,

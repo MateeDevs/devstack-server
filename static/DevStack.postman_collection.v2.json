@@ -10,7 +10,7 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "POST /login",
+					"name": "POST /auth/login",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -25,7 +25,7 @@
 							"raw": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\"\n}"
 						},
 						"url": {
-							"raw": "https://qest-devstack.herokuapp.com/login",
+							"raw": "https://qest-devstack.herokuapp.com/api/auth/login",
 							"protocol": "https",
 							"host": [
 								"qest-devstack",
@@ -33,6 +33,8 @@
 								"com"
 							],
 							"path": [
+								"api",
+								"auth",
 								"login"
 							]
 						},
@@ -55,7 +57,7 @@
 									"raw": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\"\n}"
 								},
 								"url": {
-									"raw": "https://qest-devstack.herokuapp.com/login",
+									"raw": "https://qest-devstack.herokuapp.com/auth/login",
 									"protocol": "https",
 									"host": [
 										"qest-devstack",
@@ -63,6 +65,7 @@
 										"com"
 									],
 									"path": [
+										"auth",
 										"login"
 									]
 								}
@@ -117,17 +120,12 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U\"\n}"
+							"body": "{\n    \"userId\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U\"\n}"
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "User",
-			"item": [
+				},
 				{
-					"name": "POST /user",
+					"name": "POST /auth/registration",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -139,10 +137,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\",\n\t\"phone\": \"112567\",\n\t\"bio\": \"iOS dev\"\n}"
+							"raw": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}"
 						},
 						"url": {
-							"raw": "https://qest-devstack.herokuapp.com/user",
+							"raw": "https://qest-devstack.herokuapp.com/api/auth/registration",
 							"protocol": "https",
 							"host": [
 								"qest-devstack",
@@ -150,7 +148,9 @@
 								"com"
 							],
 							"path": [
-								"user"
+								"api",
+								"auth",
+								"registration"
 							]
 						},
 						"description": "Create a new user (aka registration)."
@@ -169,10 +169,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\",\n\t\"phone\": \"112567\",\n\t\"bio\": \"iOS dev\"\n}"
+									"raw": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}"
 								},
 								"url": {
-									"raw": "https://qest-devstack.herokuapp.com/user",
+									"raw": "https://qest-devstack.herokuapp.com/auth/registration",
 									"protocol": "https",
 									"host": [
 										"qest-devstack",
@@ -180,7 +180,8 @@
 										"com"
 									],
 									"path": [
-										"user"
+										"auth",
+										"registration"
 									]
 								}
 							},
@@ -238,10 +239,15 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}"
+							"body": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\"\n}"
 						}
 					]
-				},
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
 				{
 					"name": "GET /user",
 					"request": {
@@ -263,7 +269,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://qest-devstack.herokuapp.com/user",
+							"raw": "https://qest-devstack.herokuapp.com/api/user?page=0&limit=100",
 							"protocol": "https",
 							"host": [
 								"qest-devstack",
@@ -271,10 +277,21 @@
 								"com"
 							],
 							"path": [
+								"api",
 								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								}
 							]
 						},
-						"description": "List all users"
+						"description": "List all users. Returns array with previews of User objects (id, email, firstName, lastName)."
 					},
 					"response": [
 						{
@@ -286,6 +303,11 @@
 										"key": "Content-Type",
 										"value": "application/json",
 										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -293,7 +315,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://qest-devstack.herokuapp.com/user",
+									"raw": "https://qest-devstack.herokuapp.com/api/user?page=0&limit=100",
 									"protocol": "https",
 									"host": [
 										"qest-devstack",
@@ -301,7 +323,18 @@
 										"com"
 									],
 									"path": [
+										"api",
 										"user"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "100"
+										}
 									]
 								}
 							},
@@ -334,20 +367,32 @@
 									"value": "PUT, POST, GET, DELETE, OPTIONS"
 								},
 								{
+									"key": "Link",
+									"value": "</user?page=0&limit=100 rel=\"self\">"
+								},
+								{
+									"key": "Link",
+									"value": "</user?page=0&limit=100 rel=\"first\">"
+								},
+								{
+									"key": "Link",
+									"value": "</user?page=0&limit=100 rel=\"last\">"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "210"
+									"value": "423"
 								},
 								{
 									"key": "Etag",
-									"value": "W/\"d2-0+KGnsxrN7JmJQphNVz4aMQXfi8\""
+									"value": "W/\"1a7-tJ+zU8cTfxfT2zBXCKWMRwSt+OE\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 19 Dec 2018 12:47:07 GMT"
+									"value": "Sun, 03 Feb 2019 22:49:28 GMT"
 								},
 								{
 									"key": "Via",
@@ -355,7 +400,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": \"5c1a3d7b4a74580016faadf8\",\n        \"email\": \"petr.chmelar@qest.cz\",\n        \"firstName\": \"Petr\",\n        \"lastName\": \"Chmelar\",\n        \"phone\": \"112567\",\n        \"bio\": \"iOS dev\"\n    }\n]"
+							"body": "{\n    \"page\": 0,\n    \"limit\": 100,\n    \"lastPage\": 0,\n    \"data\": [\n        {\n            \"id\": \"5c1a3d7b4a74580016faadf8\",\n            \"email\": \"petr.chmelar@qest.cz\",\n            \"firstName\": \"Petr\",\n            \"lastName\": \"Chmelar\"\n        },\n        {\n            \"id\": \"5c50224464662000177f69a9\",\n            \"email\": \"user1@qest.cz\",\n            \"firstName\": \"User1\",\n            \"lastName\": \"Qest\"\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -380,7 +425,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8",
+							"raw": "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
 							"protocol": "https",
 							"host": [
 								"qest-devstack",
@@ -388,11 +433,12 @@
 								"com"
 							],
 							"path": [
+								"api",
 								"user",
 								"5c1a3d7b4a74580016faadf8"
 							]
 						},
-						"description": "View a specified user"
+						"description": "View a specified user. Returns User object with all of the properties."
 					},
 					"response": [
 						{
@@ -499,7 +545,7 @@
 							"raw": "{\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\",\n\t\"phone\": \"112567\",\n\t\"bio\": \"iOS dev\"\n}"
 						},
 						"url": {
-							"raw": "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8",
+							"raw": "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
 							"protocol": "https",
 							"host": [
 								"qest-devstack",
@@ -507,11 +553,12 @@
 								"com"
 							],
 							"path": [
+								"api",
 								"user",
 								"5c1a3d7b4a74580016faadf8"
 							]
 						},
-						"description": "Edit a specified user"
+						"description": "Edit a specified user. Returns modified User object with all of the properties."
 					},
 					"response": [
 						{
