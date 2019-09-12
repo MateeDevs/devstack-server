@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
 // routes
 app.get('/', function(req, res) {
   res.type('text/plain'); // set content-type
-  res.send('QEST DevStack'); // send text response
+  res.send('Matee DevStack'); // send text response
 });
 app.use('/api/auth', require('./routes/authRouter'));
 app.use('/api/user', require('./routes/userRouter'));

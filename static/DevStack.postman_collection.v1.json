@@ -1,7 +1,7 @@
 {
 	"id": "229e92bb-c802-461c-a35b-9e7b31dcd9db",
 	"name": "DevStack",
-	"description": "Documentation for QEST iOS/Android DevStack REST API.",
+	"description": "Documentation for Matee iOS/Android DevStack REST API.",
 	"auth": null,
 	"events": [
 		{
@@ -66,7 +66,7 @@
 		{
 			"id": "038815bb-2174-4ffc-9d35-fc5f0c2e8ddf",
 			"name": "POST /auth/registration",
-			"url": "https://qest-devstack.herokuapp.com/api/auth/registration",
+			"url": "https://matee-devstack.herokuapp.com/api/auth/registration",
 			"description": "Create a new user (aka registration).",
 			"data": [],
 			"dataMode": "raw",
@@ -92,13 +92,13 @@
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\"\n}",
+					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@matee.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\"\n}",
 					"responseCode": {
 						"code": 201,
 						"name": "Created"
 					},
 					"requestObject": {
-						"data": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}",
+						"data": "{\n\t\"email\": \"petr.chmelar@matee.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}",
 						"dataMode": "raw",
 						"headerData": [
 							{
@@ -112,7 +112,7 @@
 						"method": "POST",
 						"pathVariableData": [],
 						"queryParams": [],
-						"url": "https://qest-devstack.herokuapp.com/auth/registration"
+						"url": "https://matee-devstack.herokuapp.com/auth/registration"
 					},
 					"headers": [
 						{
@@ -169,14 +169,14 @@
 					"collection": "229e92bb-c802-461c-a35b-9e7b31dcd9db"
 				}
 			],
-			"rawModeData": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}",
+			"rawModeData": "{\n\t\"email\": \"petr.chmelar@matee.cz\",\n\t\"pass\": \"11111111\",\n\t\"firstName\": \"Petr\",\n\t\"lastName\": \"Chmelar\"\n}",
 			"headers": "Content-Type: application/json\n",
 			"pathVariables": {}
 		},
 		{
 			"id": "19743203-66d3-4bf9-b1a1-8deccd03b47f",
 			"name": "PUT /user/:id",
-			"url": "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
+			"url": "https://matee-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
 			"description": "Edit a specified user. Returns modified User object with all of the properties.",
 			"data": [],
 			"dataMode": "raw",
@@ -209,7 +209,7 @@
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}",
+					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@matee.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -236,7 +236,7 @@
 						"method": "PUT",
 						"pathVariableData": [],
 						"queryParams": [],
-						"url": "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"
+						"url": "https://matee-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"
 					},
 					"headers": [
 						{
@@ -296,7 +296,7 @@
 		{
 			"id": "734e5441-66ee-472c-a65c-3b53e5724a1a",
 			"name": "GET /user",
-			"url": "https://qest-devstack.herokuapp.com/api/user?page=0&limit=100",
+			"url": "https://matee-devstack.herokuapp.com/api/user?page=0&limit=100",
 			"description": "List all users. Returns array with previews of User objects (id, email, firstName, lastName).",
 			"data": null,
 			"dataMode": null,
@@ -344,7 +344,7 @@
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "{\n    \"page\": 0,\n    \"limit\": 100,\n    \"lastPage\": 0,\n    \"data\": [\n        {\n            \"id\": \"5c1a3d7b4a74580016faadf8\",\n            \"email\": \"petr.chmelar@qest.cz\",\n            \"firstName\": \"Petr\",\n            \"lastName\": \"Chmelar\"\n        },\n        {\n            \"id\": \"5c50224464662000177f69a9\",\n            \"email\": \"user1@qest.cz\",\n            \"firstName\": \"User1\",\n            \"lastName\": \"Qest\"\n        }\n    ]\n}",
+					"text": "{\n    \"page\": 0,\n    \"limit\": 100,\n    \"lastPage\": 0,\n    \"data\": [\n        {\n            \"id\": \"5c1a3d7b4a74580016faadf8\",\n            \"email\": \"petr.chmelar@matee.cz\",\n            \"firstName\": \"Petr\",\n            \"lastName\": \"Chmelar\"\n        },\n        {\n            \"id\": \"5c50224464662000177f69a9\",\n            \"email\": \"user1@matee.cz\",\n            \"firstName\": \"User1\",\n            \"lastName\": \"Matee\"\n        }\n    ]\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -386,7 +386,7 @@
 								"enabled": true
 							}
 						],
-						"url": "https://qest-devstack.herokuapp.com/api/user?page=0&limit=100"
+						"url": "https://matee-devstack.herokuapp.com/api/user?page=0&limit=100"
 					},
 					"headers": [
 						{
@@ -457,7 +457,7 @@
 		{
 			"id": "bf894250-00f5-4576-88ff-9e74b1629678",
 			"name": "POST /auth/login",
-			"url": "https://qest-devstack.herokuapp.com/api/auth/login",
+			"url": "https://matee-devstack.herokuapp.com/api/auth/login",
 			"description": "Obtain authorization token",
 			"data": [],
 			"dataMode": "raw",
@@ -483,13 +483,13 @@
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "{\n    \"userId\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U\"\n}",
+					"text": "{\n    \"userId\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@matee.cz\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U\"\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
 					},
 					"requestObject": {
-						"data": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\"\n}",
+						"data": "{\n\t\"email\": \"petr.chmelar@matee.cz\",\n\t\"pass\": \"11111111\"\n}",
 						"dataMode": "raw",
 						"headerData": [
 							{
@@ -503,7 +503,7 @@
 						"method": "POST",
 						"pathVariableData": [],
 						"queryParams": [],
-						"url": "https://qest-devstack.herokuapp.com/auth/login"
+						"url": "https://matee-devstack.herokuapp.com/auth/login"
 					},
 					"headers": [
 						{
@@ -556,14 +556,14 @@
 					"collection": "229e92bb-c802-461c-a35b-9e7b31dcd9db"
 				}
 			],
-			"rawModeData": "{\n\t\"email\": \"petr.chmelar@qest.cz\",\n\t\"pass\": \"11111111\"\n}",
+			"rawModeData": "{\n\t\"email\": \"petr.chmelar@matee.cz\",\n\t\"pass\": \"11111111\"\n}",
 			"headers": "Content-Type: application/json\n",
 			"pathVariables": {}
 		},
 		{
 			"id": "c6492533-9b0d-40f8-a13f-0ab31d4f1d25",
 			"name": "GET /user/:id",
-			"url": "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
+			"url": "https://matee-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8",
 			"description": "View a specified user. Returns User object with all of the properties.",
 			"data": null,
 			"dataMode": null,
@@ -596,7 +596,7 @@
 					"status": null,
 					"mime": null,
 					"language": "json",
-					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@qest.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}",
+					"text": "{\n    \"id\": \"5c1a3d7b4a74580016faadf8\",\n    \"email\": \"petr.chmelar@matee.cz\",\n    \"firstName\": \"Petr\",\n    \"lastName\": \"Chmelar\",\n    \"phone\": \"112567\",\n    \"bio\": \"iOS dev\"\n}",
 					"responseCode": {
 						"code": 200,
 						"name": "OK"
@@ -616,7 +616,7 @@
 						"method": "GET",
 						"pathVariableData": [],
 						"queryParams": [],
-						"url": "https://qest-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"
+						"url": "https://matee-devstack.herokuapp.com/user/5c1a3d7b4a74580016faadf8"
 					},
 					"headers": [
 						{

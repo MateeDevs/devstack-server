@@ -207,7 +207,7 @@ pre code {
                     <a href="#doc-general-notes"><i class="glyphicon glyphicon-link"></i></a>
                 </h2>
 
-                <p>Documentation for QEST iOS/Android DevStack REST API.</p>
+                <p>Documentation for Matee iOS/Android DevStack REST API.</p>
 
 
                 
@@ -250,17 +250,17 @@ pre code {
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-auth-post-auth-login-example-curl">
                                     <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
-	"email": "petr.chmelar@qest.cz",
+	"email": "petr.chmelar@matee.cz",
 	"pass": "11111111"
-}' "https://qest-devstack.herokuapp.com/api/auth/login"</code></pre>
+}' "https://matee-devstack.herokuapp.com/api/auth/login"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-auth-post-auth-login-example-http">
                                     <pre><code class="hljs http">POST /api/auth/login HTTP/1.1
-Host: qest-devstack.herokuapp.com
+Host: matee-devstack.herokuapp.com
 Content-Type: application/json
 
 {
-	"email": "petr.chmelar@qest.cz",
+	"email": "petr.chmelar@matee.cz",
 	"pass": "11111111"
 }</code></pre>
                                 </div>
@@ -313,7 +313,7 @@ Content-Type: application/json
                                             <tr><td class="response-text-sample" colspan="2">
                                                 <pre><code>{
     "userId": "5c1a3d7b4a74580016faadf8",
-    "email": "petr.chmelar@qest.cz",
+    "email": "petr.chmelar@matee.cz",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U"
 }</code></pre>
                                             </td></tr>
@@ -349,19 +349,19 @@ Content-Type: application/json
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-auth-post-auth-registration-example-curl">
                                     <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
-    "email": "petr.chmelar@qest.cz",
+    "email": "petr.chmelar@matee.cz",
     "pass": "11111111",
     "firstName": "Petr",
     "lastName": "Chmelar"
-}' "https://qest-devstack.herokuapp.com/api/auth/registration"</code></pre>
+}' "https://matee-devstack.herokuapp.com/api/auth/registration"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-auth-post-auth-registration-example-http">
                                     <pre><code class="hljs http">POST /api/auth/registration HTTP/1.1
-Host: qest-devstack.herokuapp.com
+Host: matee-devstack.herokuapp.com
 Content-Type: application/json
 
 {
-    "email": "petr.chmelar@qest.cz",
+    "email": "petr.chmelar@matee.cz",
     "pass": "11111111",
     "firstName": "Petr",
     "lastName": "Chmelar"
@@ -418,7 +418,7 @@ Content-Type: application/json
                                             <tr><td class="response-text-sample" colspan="2">
                                                 <pre><code>{
     "id": "5c1a3d7b4a74580016faadf8",
-    "email": "petr.chmelar@qest.cz",
+    "email": "petr.chmelar@matee.cz",
     "firstName": "Petr",
     "lastName": "Chmelar"
 }</code></pre>
@@ -467,11 +467,11 @@ Content-Type: application/json
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-user-get-user-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/api/user?page=0&limit=100"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://matee-devstack.herokuapp.com/api/user?page=0&limit=100"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-user-get-user-example-http">
                                     <pre><code class="hljs http">GET /api/user?page=0&limit=100 HTTP/1.1
-Host: qest-devstack.herokuapp.com
+Host: matee-devstack.herokuapp.com
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U</code></pre>
                                 </div>
@@ -529,15 +529,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM
     "data": [
         {
             "id": "5c1a3d7b4a74580016faadf8",
-            "email": "petr.chmelar@qest.cz",
+            "email": "petr.chmelar@matee.cz",
             "firstName": "Petr",
             "lastName": "Chmelar"
         },
         {
             "id": "5c50224464662000177f69a9",
-            "email": "user1@qest.cz",
+            "email": "user1@matee.cz",
             "firstName": "User1",
-            "lastName": "Qest"
+            "lastName": "Matee"
         }
     ]
 }</code></pre>
@@ -572,11 +572,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-user-get-user-id-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U" "https://matee-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-user-get-user-id-example-http">
                                     <pre><code class="hljs http">GET /api/user/5c1a3d7b4a74580016faadf8 HTTP/1.1
-Host: qest-devstack.herokuapp.com
+Host: matee-devstack.herokuapp.com
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U</code></pre>
                                 </div>
@@ -629,7 +629,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM
                                             <tr><td class="response-text-sample" colspan="2">
                                                 <pre><code>{
     "id": "5c1a3d7b4a74580016faadf8",
-    "email": "petr.chmelar@qest.cz",
+    "email": "petr.chmelar@matee.cz",
     "firstName": "Petr",
     "lastName": "Chmelar",
     "phone": "112567",
@@ -672,11 +672,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM
 	"lastName": "Chmelar",
 	"phone": "112567",
 	"bio": "iOS dev"
-}' "https://qest-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8"</code></pre>
+}' "https://matee-devstack.herokuapp.com/api/user/5c1a3d7b4a74580016faadf8"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-user-put-user-id-example-http">
                                     <pre><code class="hljs http">PUT /api/user/5c1a3d7b4a74580016faadf8 HTTP/1.1
-Host: qest-devstack.herokuapp.com
+Host: matee-devstack.herokuapp.com
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM2Q3YjRhNzQ1ODAwMTZmYWFkZjgiLCJpYXQiOjE1NDUyMjM1OTcsImV4cCI6MTU0NTgyODM5N30.Gr5GmFDDm2u_hFvltMlwwwmT_JIc_134HNC6seRe90U
 
@@ -737,7 +737,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzFhM
                                             <tr><td class="response-text-sample" colspan="2">
                                                 <pre><code>{
     "id": "5c1a3d7b4a74580016faadf8",
-    "email": "petr.chmelar@qest.cz",
+    "email": "petr.chmelar@matee.cz",
     "firstName": "Petr",
     "lastName": "Chmelar",
     "phone": "112567",

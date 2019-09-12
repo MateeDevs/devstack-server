@@ -8,7 +8,7 @@ do
     \"pass\": \"11111111\",
     \"firstName\": \"User${i}\",
     \"lastName\": \"Gmail\"
-	}" "https://qest-devstack.herokuapp.com/api/auth/registration"
+	}" "https://matee-devstack.herokuapp.com/api/auth/registration"
 done
 
 echo -ne "\033[0K\r"

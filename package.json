@@ -1,7 +1,7 @@
 {
   "name": "devstack-server",
   "version": "1.0.0",
-  "description": "Node.js server and REST API for QEST iOS/Android DevStack",
+  "description": "Node.js server and REST API for Matee iOS/Android DevStack",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
