@@ -42,6 +42,7 @@ exports.list = function(req, res) {
           'page': page,
           'limit': limit,
           'lastPage': pages,
+          'totalCount': count,
           'data': users
         });
       }); 
